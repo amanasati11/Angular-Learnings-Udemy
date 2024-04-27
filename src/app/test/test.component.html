@@ -1,0 +1,37 @@
+<h2>{{ msg }}</h2>
+<h2>Value of A: {{ a }}</h2>
+<h2>Value of b: {{ b }}</h2>
+<h2>Sum of Values: {{ ans }}</h2>
+
+<!-- Interpolation -> Treats all the data types including boolean as a string  -->
+<input type="text" value="{{ inputVal }}" disabled="{{ isDisabled }}" />
+<br />
+<!-- Property Binding -> can read boolean value as it is -->
+<input type="text" [value]="inputVal" [disabled]="isDisabled" />
+
+<img [src]="imgSrc" alt="" />
+<button type="submit" (click)="display('Welcome')">Click Me!</button>
+
+<h1 (dblclick)="incr()">Increment - {{ counter }}</h1>
+<h1 (mouseover)="incr()">Mouseover - {{ counter }}</h1>
+<h1 (mouseleave)="incr()">MouseLeave - {{ counter }}</h1>
+<h1 (drag)="incr()">drag - {{ counter }}</h1>
+
+<input type="text" (keypress)="onKeyPress($event)" />
+<input type="text" (keydown)="onKeyDown()" />
+<input type="text" (keyup)="onKeyUp($event)" />
+<input type="text" (focus)="onFocus()" />
+<input type="text" (select)="onSelect()" />
+<h1>
+  -----------------------------------------------------------------------------------------------
+</h1>
+
+<input type="text" [(ngModel)]="staticInput" />
+<br /><br />
+<input type="text" [(ngModel)]="dynamicInput" />
+<h1>{{ dynamicInput }}</h1>
+
+<input type="text" [(ngModel)]="inputText" />
+<br /><br />
+<button type="submit" (click)="show()">Show</button>
+<h1>{{ dynamicVal }}</h1>
