@@ -1,0 +1,28 @@
+.updateStyles {
+  text-align: center;
+  background-color: black;
+  color: goldenrod;
+  font-size: 20px;
+  padding: 10px 20px;
+  margin: 0 auto;
+  border-radius: 4px;
+  width: 700px;
+}
+
+.italicText {
+  font-style: italic;
+}
+
+.letterFormat {
+  text-transform: uppercase;
+}
+
+input {
+  width: 200px;
+  height: 25px;
+  font-size: 15px;
+}
+
+input.txt {
+  background-color: cadetblue;
+}

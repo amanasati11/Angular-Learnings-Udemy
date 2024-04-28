@@ -1,0 +1,136 @@
+<!-- If Set display false, It is Removed from the DOM -->
+<div *ngIf="display">Structural Directive Example</div>
+
+<h1 *ngIf="num > 0">{{ num }} is greater than 0</h1>
+<h1 *ngIf="num === 0">Number is 0</h1>
+<h1 *ngIf="num < 0">{{ num }} is less than 0</h1>
+
+<button (click)="show()">Click here for Information!</button>
+<!-- <button (click)="displayElement = !displayElement">Click here for Information!</button> -> Inline Coding -->
+<div *ngIf="displayElement">This is the Information, Thanks for Clicking!</div>
+
+<button (click)="showList = !showList">Show List of Devs!</button>
+<div *ngFor="let value of fullStackDev">
+  <ul *ngIf="showList">
+    <li>{{ value.id }}</li>
+    <li>{{ value.name }}</li>
+  </ul>
+</div>
+
+<div>
+  <h1>List of Employee</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Role</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(emp of employee(); track emp.id){
+      <tr>
+        <td>{{ emp.id }}</td>
+        <td>{{ emp.name }}</td>
+        <td>{{ emp.role }}</td>
+      </tr>
+      }@empty {
+      <h2>No Employee Found</h2>
+      }
+    </tbody>
+  </table>
+</div>
+
+<div [ngSwitch]="age" style="text-align: center; font-size: 20px">
+  <p *ngSwitchCase="10">The Person's age is 10 years old.</p>
+  <p *ngSwitchCase="20">The Person's age is 20 years old.</p>
+  <p *ngSwitchCase="30">The Person's age is 30 years old.</p>
+  <p *ngSwitchDefault>The Person's age is {{ age }} years old.</p>
+</div>
+
+<div>
+  <label>Enter Your Age: </label>
+  <input type="text" (input)="checkEligibility()" [(ngModel)]="personAge" />
+  <div [ngSwitch]="isEligible">
+    <p *ngSwitchCase="true">You are Eligible to Vote!</p>
+    <p *ngSwitchDefault>You are Not Eligible to Vote!</p>
+  </div>
+</div>
+
+<p [ngClass]="'updateStyles italicText letterFormat'">
+  This is an Example of NgClass
+</p>
+<p [ngClass]="['updateStyles', 'italicText', 'letterFormat']">Another way</p>
+
+<input
+  type="text"
+  placeholder="Enter Your Text Here...."
+  (input)="textInput($event)"
+  [ngClass]="{ txt: hasText }"
+/>
+
+<button (click)="toggleMode()">
+  {{
+    colorMode === "lightMode" ? "Switch to Dark Mode" : "Switch to Light Mode"
+  }}
+</button>
+<div class="box" [ngClass]="colorMode">
+  <h1>Light Mode</h1>
+  <p>
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa quidem cumque
+    quibusdam quaerat excepturi quis ullam consequuntur voluptatibus nam,
+    inventore sunt! Placeat minima consequatur optio qui! Natus facere excepturi
+    ipsum. Veritatis deleniti harum saepe, commodi doloribus voluptatum! Nulla
+    hic totam incidunt ex at molestiae, a praesentium similique accusantium
+    animi ut culpa dolore molestias aut, nam reiciendis nobis dignissimos. Ut,
+    quae. Maxime magni quod neque velit, architecto voluptatem ipsa eaque aut
+    eum debitis assumenda a nobis. Vero quis expedita maiores nesciunt aperiam
+    fuga eos ut temporibus. Minus ea temporibus quam quae? Nesciunt culpa
+    voluptatem, exercitationem, magnam blanditiis praesentium, quas at itaque
+    natus explicabo voluptates obcaecati ratione! Aut magnam, sequi sed itaque
+    cupiditate accusantium nemo error incidunt tempore fugiat nesciunt, laborum
+    repellat. Voluptate eveniet dolor tenetur possimus beatae nobis, animi a,
+    deleniti dolores sequi porro sapiente? At ipsa illo eius corporis facilis,
+    voluptatum, ab, ut provident eligendi accusamus assumenda ducimus vel
+    fugiat!
+  </p>
+</div>
+<div class="box" [ngClass]="colorMode">
+  <h1>Dark Mode</h1>
+  <p>
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa quidem cumque
+    quibusdam quaerat excepturi quis ullam consequuntur voluptatibus nam,
+    inventore sunt! Placeat minima consequatur optio qui! Natus facere excepturi
+    ipsum. Veritatis deleniti harum saepe, commodi doloribus voluptatum! Nulla
+    hic totam incidunt ex at molestiae, a praesentium similique accusantium
+    animi ut culpa dolore molestias aut, nam reiciendis nobis dignissimos. Ut,
+    quae. Maxime magni quod neque velit, architecto voluptatem ipsa eaque aut
+    eum debitis assumenda a nobis. Vero quis expedita maiores nesciunt aperiam
+    fuga eos ut temporibus. Minus ea temporibus quam quae? Nesciunt culpa
+    voluptatem, exercitationem, magnam blanditiis praesentium, quas at itaque
+    natus explicabo voluptates obcaecati ratione! Aut magnam, sequi sed itaque
+    cupiditate accusantium nemo error incidunt tempore fugiat nesciunt, laborum
+    repellat. Voluptate eveniet dolor tenetur possimus beatae nobis, animi a,
+    deleniti dolores sequi porro sapiente? At ipsa illo eius corporis facilis,
+    voluptatum, ab, ut provident eligendi accusamus assumenda ducimus vel
+    fugiat!
+  </p>
+</div>
+
+<div style="text-align: center">
+  <p
+    [ngStyle]="{
+      color: colorVal,
+      'font-size': fontSize,
+      'font-style': isItalic
+    }"
+  >
+    Example of ngStyle Directive
+  </p>
+</div>
+
+<div style="text-align: center">
+  <p [ngStyle]="applyVal">
+    Example of ngStyle Directive passig object in ts file
+  </p>
+</div>
